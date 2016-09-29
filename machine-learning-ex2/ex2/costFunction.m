@@ -22,9 +22,9 @@ grad = zeros(size(theta));
 
 
 
+J = (-1*transpose(y)*reallog(sigmoid(X*theta)) - transpose(1 - y)*reallog(1 - sigmoid(X*theta)))/m;
 
-
-
+grad = (transpose(X)*(sigmoid(X*theta) - y))/m;
 
 
 % =============================================================
