@@ -16,7 +16,11 @@ p = zeros(size(X, 1), 1);
 
 % Add ones to the X data matrix
 X = [ones(m, 1) X];
-
+H = realpow(1 + exp(-1*X*transpose(all_theta)) , -1);
+[a,p] = max(H, [] , 2);
+%disp(size(X));
+%disp(size(all_theta));
+%disp(p(1:20,:));
 % ====================== YOUR CODE HERE ======================
 % Instructions: Complete the following code to make predictions using
 %               your learned logistic regression parameters (one-vs-all).

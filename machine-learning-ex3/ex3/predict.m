@@ -10,6 +10,17 @@ num_labels = size(Theta2, 1);
 % You need to return the following variables correctly 
 p = zeros(size(X, 1), 1);
 
+X = [ones(m, 1) X];
+
+%disp(size(Theta1));
+%disp(size(Theta2));
+%disp(size(X));
+%disp(size(p));
+J = realpow(1+ exp(-1*X*transpose(Theta1)), -1);
+J = [ones(m, 1) J];
+p = realpow(1+ exp(-1*J*transpose(Theta2)), -1);
+[a, p] = max(p, [], 2);
+%disp(size(p));
 % ====================== YOUR CODE HERE ======================
 % Instructions: Complete the following code to make predictions using
 %               your learned neural network. You should set p to a 

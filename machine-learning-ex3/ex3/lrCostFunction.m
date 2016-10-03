@@ -37,10 +37,15 @@ grad = zeros(size(theta));
 %
 
 
+H = realpow(1 + exp(-1*X*theta), -1);
+E = theta;
+
+E(1) = 0;
+J = (-1*transpose(y)*reallog(H) - transpose(1 - y)*reallog(1-H))/m + (transpose(E)*E )*lambda/(2*m);
 
 
 
-
+grad = (transpose(X)*(H - y))/m + (E)*lambda/m;
 
 
 
