@@ -81,7 +81,7 @@ for i = 1 : m
   %size(sigmoidGradient(X(i,:)*transpose(Theta1)))
   dhid = (transpose(Theta2)*dout).*([1; transpose(sigmoidGradient(X(i,:)*transpose(Theta1)))]);
   dhid = dhid(2:size(dhid)(1),:);
-  size(dhid)
+  %size(dhid)
   %disp('---');
   t1D = t1D + dhid*X(i,:);
   t2D = t2D + dout*V2(i,:);
